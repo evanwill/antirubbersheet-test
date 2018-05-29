@@ -11,3 +11,4 @@ set up:
 - list the places you want to "geocode"
 - follow the antirubbersheeter geocode process
 - copy the resulting json to `assets/antirubbersheeter.json`
+- go to repository settings, activate github pages
