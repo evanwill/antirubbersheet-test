@@ -1,0 +1,53 @@
+{
+    "width": 2000,
+    "placesstring": "stadium,tree,building,bigger building,more trees,road,green space,quad,wow!",
+    "imgururl": "https://i.imgur.com/bJcrjY9.jpg",
+    "height": 1347,
+    "places": [
+      {
+        "name": "stadium",
+        "y": 1244,
+        "x": 898
+      },
+      {
+        "name": "tree",
+        "y": 658,
+        "x": 734
+      },
+      {
+        "name": "building",
+        "y": 638,
+        "x": 1154
+      },
+      {
+        "name": "bigger building",
+        "y": 1044,
+        "x": 778
+      },
+      {
+        "name": "more trees",
+        "y": 760,
+        "x": 288
+      },
+      {
+        "name": "road",
+        "y": 432,
+        "x": 1448
+      },
+      {
+        "name": "green space",
+        "y": 318,
+        "x": 584
+      },
+      {
+        "name": "quad",
+        "y": 986,
+        "x": 1718
+      },
+      {
+        "name": "wow!",
+        "y": 1116,
+        "x": 1272
+      }
+    ]
+}

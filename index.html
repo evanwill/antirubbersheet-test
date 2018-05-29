@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>leaflet antirubbersheeter test</title>
+        <meta http-equiv="Content-Language" content="en-us" >
+        <link rel="stylesheet" href="assets/css/bootstrap.min.css" type="text/css">
+        <link rel="stylesheet" href="assets/leaflet/leaflet.css" type="text/css">
+
+        <style>
+            #map { height: 750px; z-index: 98; }
+            .leaflet-popup-content img { max-width: 100%;}
+            b { font-weight: bold; }
+        </style>
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="row mt-2">
+                <div class="col-md-12">
+                    <h1 class="h3">
+                        <a href="" >leaflet antirubbersheeter test</a>
+                        <small class="text-muted">| test</small>
+                    </h1>
+                </div>
+            </div>	
+        </div>
+        
+        <nav class="navbar navbar-expand-md navbar-dark bg-secondary border-bottom">
+            <div class="container">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#page-nav" aria-controls="page-nav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+        
+                <div class="collapse navbar-collapse" id="page-nav">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="">Home</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <main role="main">
+            <div id="map"></div>
+        </main>
+        <footer class="navbar nav-light border-top mt-3">
+            <div class="container py-3">
+                <a class="navbar-brand" href="">leaflet test</a>
+                <span class="navbar-text navbar-nav mr-auto">2018
+                [see <a href="https://leafletjs.com/examples/crs-simple/crs-simple.html">leaflet CRS</a> and <a href="https://antirubbersheeter.moacir.com/">antirubbersheeter</a>]</span>
+                <br>
+                <span class="navbar-text navbar-nav">built with <a href="https://github.com/uidaholib/pages-collection" target="_blank">pages-collection</a></span>
+            </div>
+        </footer>
+        <!-- Optional JS for Bootstrap: jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="assets/js/jquery-3.3.1.min.js"></script>
+        <script src="assets/js/bootstrap.bundle.min.js"></script>
+        <!-- load leaflet dependencies -->
+        <script src="assets/leaflet/leaflet.js"></script>
+
+        <!-- int leaflet map -->
+        <script>
+            /* load the antirubbersheeter json */ 
+            $.getJSON("assets/antirubbersheeter.json", function(json){
+                /* init leaflet using simple cord */
+                var map = L.map('map', { crs: L.CRS.Simple, minZoom: -1 });
+
+                /* load map layer */ 
+                var bounds = [[0,0], [json.height,json.width]];
+                var image = L.imageOverlay(json.imgururl, bounds).addTo(map);
+                map.fitBounds(bounds);
+
+                /* load places */ 
+                json.places.forEach(function (point) {
+                    var p = L.latLng([ point.y, point.x ]);
+                    L.marker(p).addTo(map).bindPopup(point.name);
+                });
+            });
+        </script>
+    </body>
+
+</html>
